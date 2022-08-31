@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom/extend-expect';
 
@@ -55,9 +56,12 @@ test('renders show season options matching your data when the button is clicked'
    render(<Display />)
 
    const button = screen.getByRole('button')
-   userEvent.click(button)
 
-   //Waiting for the Show Component to show + to try to make the act(...) error go away to no avail: 
+   await act(async () => {
+      userEvent.click(button)
+   })
+
+   //Waiting for the Show Component to show
    await waitFor(() => {
       const numSeasons = screen.queryAllByTestId('season-option')
       expect(numSeasons).toHaveLength(4)
