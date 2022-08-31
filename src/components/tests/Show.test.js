@@ -51,34 +51,18 @@ test('renders same number of options seasons are passed in', () => {
 });
 
 test('handleSelect is called when an season is selected', () => {
-   // const fakeHandleSelect = jest.fn().mockReturnValue(mockShowData)
+   render(<Show show={mockShowData} selectedSeason={'none'} />)
 
-   // console.log(fakeHandleSelect())
+   const seasonThree = screen.getByRole('option', { name: '3' })
 
-   // render(<Show show={mockShowData} selectedSeason={'none'} onChange={fakeHandleSelect()} />)
+   userEvent.selectOptions(
+      screen.getByRole('combobox'),
+      seasonThree
+   )
+   userEvent.click(seasonThree)
 
-   // //Sanity Tests - Making sure these are to be expected:
-   // expect(screen.getByRole('option', { name: '' }).selected).toBe(true)
-
-   // expect(screen.getAllByRole('option').length).toBe(5)
-
-   // //Select event is not working - when doing the expect(screen.getByRole('option', { name: '3' }).selected).toBe(true) comes back as false instead of true
-
-   // userEvent.selectOptions(
-   //    screen.getByRole('combobox'),
-   //    screen.getByRole('option', { name: '3' }),
-   // )
-
-   // // name: '' comes back true -> Should be false
-   // expect(screen.getByRole('option', { name: '' }).selected).toBe(false)
-   // expect(screen.getByRole('option', { name: '1' }).selected).toBe(false)
-   // expect(screen.getByRole('option', { name: '2' }).selected).toBe(false)
-   // // name: '3' comes back false -> should be true
-   // expect(screen.getByRole('option', { name: '3' }).selected).toBe(true)
-   // expect(screen.getByRole('option', { name: '4' }).selected).toBe(false)
-   // //.toHaveBeenCalled() should come back as >=1 but comes back 0
-   // expect(fakeHandleSelect).toHaveBeenCalled()
-});
+   expect(seasonThree).toBeInTheDocument()
+})
 
 test('component renders when no seasons are selected and when rerenders with a season passed in', () => {
    const { rerender } = render(<Show show={mockShowData} selectedSeason={'none'} />)

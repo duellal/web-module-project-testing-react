@@ -43,8 +43,6 @@ test('renders Show component when the button is clicked ', async () => {
    render(<Display />)
 
    const button = screen.getByRole('button')
-   //Sanity Test:
-   expect(button).toBeInTheDocument()
    userEvent.click(button)
 
    //Waiting for the Show Component to show
@@ -57,8 +55,6 @@ test('renders show season options matching your data when the button is clicked'
    render(<Display />)
 
    const button = screen.getByRole('button')
-   //Sanity Test:
-   expect(button).toBeInTheDocument()
    userEvent.click(button)
 
    //Waiting for the Show Component to show + to try to make the act(...) error go away to no avail: 
@@ -75,8 +71,6 @@ test('displayFunction is called when the fetch button is pressed', async () => {
    render(<Display displayFun={displayFunc()} />)
 
    const button = screen.getByRole('button')
-   //Sanity Test:
-   expect(button).toBeInTheDocument()
    userEvent.click(button)
 
    await waitFor(() => {
