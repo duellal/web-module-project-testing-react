@@ -51,9 +51,11 @@ test('renders same number of options seasons are passed in', () => {
 });
 
 test('handleSelect is called when an season is selected', () => {
-   // const fakeHandleSelect = jest.fn()
+   // const fakeHandleSelect = jest.fn().mockReturnValue(mockShowData)
 
-   // render(<Show show={mockShowData} selectedSeason={'none'} onChange={fakeHandleSelect} />)
+   // console.log(fakeHandleSelect())
+
+   // render(<Show show={mockShowData} selectedSeason={'none'} onChange={fakeHandleSelect()} />)
 
    // //Sanity Tests - Making sure these are to be expected:
    // expect(screen.getByRole('option', { name: '' }).selected).toBe(true)
