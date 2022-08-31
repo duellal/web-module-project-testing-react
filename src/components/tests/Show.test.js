@@ -67,11 +67,14 @@ test('handleSelect is called when an season is selected', () => {
    //    screen.getByRole('option', { name: '3' }),
    // )
 
+   // // name: '' comes back true -> Should be false
    // expect(screen.getByRole('option', { name: '' }).selected).toBe(false)
    // expect(screen.getByRole('option', { name: '1' }).selected).toBe(false)
    // expect(screen.getByRole('option', { name: '2' }).selected).toBe(false)
+   // // name: '3' comes back false -> should be true
    // expect(screen.getByRole('option', { name: '3' }).selected).toBe(true)
    // expect(screen.getByRole('option', { name: '4' }).selected).toBe(false)
+   // //.toHaveBeenCalled() should come back as >=1 but comes back 0
    // expect(fakeHandleSelect).toHaveBeenCalled()
 });
 
