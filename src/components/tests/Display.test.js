@@ -61,7 +61,7 @@ test('renders show season options matching your data when the button is clicked'
    expect(button).toBeInTheDocument()
    userEvent.click(button)
 
-   //Waiting for the Show Component to show
+   //Waiting for the Show Component to show + to try to make the act(...) error go away to no avail: 
    await waitFor(() => {
       const numSeasons = screen.queryAllByTestId('season-option')
       expect(numSeasons).toHaveLength(4)
